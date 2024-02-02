@@ -1,0 +1,333 @@
+* {
+    outline: 1px dotted rgba(255, 0, 0, 0);
+    margin: 0;
+    padding: 0;
+}
+
+*::selection {background-color: lightgray;}
+
+body,html {font-family: 'Inter', sans-serif;}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/*----------------------   Hide scrollbar
+*/
+/*
+*::-webkit-scrollbar {display: none;}
+* {-ms-overflow-style: none; scrollbar-width: none;}*/
+
+
+/*------------------------------- Warning Message
+*/
+
+.warning {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 200px;
+    padding: 15px 12px 15px 15px;
+    border-radius: 10px;
+    background-color: rgb(233, 233, 233);
+    pointer-events: none;
+}
+
+.warning > p {
+    font-size: 13px;
+    color: rgb(187, 187, 187);
+}
+
+
+
+/*------------------------------- Version Message
+*/
+
+.version {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    padding: 12px 15px 12px 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255);
+    pointer-events: none;
+}
+
+.version > p {
+    font-size: 9px;
+    text-align: center;
+    color: rgb(227, 227, 227);
+}
+
+
+/*------------------------------- Header
+*/
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+    background-color: 
+white;
+    width: 100%;
+    height: 35px;
+    padding: 30px 0 30px 0;
+    margin: 0 0 70px 70px;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1em; /* adds 1 unit of spacing after each paragraph */
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1em; /* adds 1 unit of spacing after each paragraph */
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1em; /* adds 1 unit of spacing after each paragraph */
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1em; /* adds 1 unit of spacing after each paragraph */
+}
+
+h5 {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1em; /* adds 1 unit of spacing after each paragraph */
+}
+
+h6 {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1em; /* adds 1 unit of spacing after each paragraph */
+}
+
+h6 {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 1em; /* adds 1 unit of spacing after each paragraph */
+}
+
+header > a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/*------------------------------- Main
+*/
+
+main {width: 900px;}
+
+input[type=checkbox] {
+    display: none;
+  }
+  
+
+.image-container {
+    width: 900px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.25s ease;
+    cursor: zoom-in;
+
+    
+    
+}
+
+.image-container > img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+
+}
+
+input[type=checkbox]:checked ~ label > img {
+    margin: 100px;
+    transform: scale(2);
+    cursor: zoom-out;
+  }
+    
+/*------------------------------- Info Container
+*/
+
+.info-container {margin: 22px 25px 90px 25px;}
+
+
+
+/*------------------------------- Text description
+*/
+
+.post-description {
+    font-family: '', serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 140%;
+    margin: 17px 0 12px 0;
+}
+
+.post-timestamp {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.gray {
+    color: rgb(193, 193, 193);
+}
+
+
+/*------------------------------- Poem Container
+*/
+
+.poem-container {
+    margin: 100px 50px 110px 50px;
+    padding: 25px 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.poem-title {
+    font-size: 25px;
+    font-weight: 500;
+    font-family: 'Spectral', serif;
+    line-height: 130%;
+    text-align: center;
+    margin: 0 0 15px 0;
+}
+
+.poem {
+    font-family: 'Spectral', serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 140%;
+    margin: 0 0 10px 0;
+}
+
+.poem-timestamp {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 15px 0 0 0;
+}
+
+.poem > b {font-weight: 600;}
+
+
+
+/*------------------------------- Footer
+*/
+
+footer {margin: 100px 0 30px 0;}
+
+footer > a {
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
+
+
+/*------------------------------- About
+*/
+
+.about-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about {
+    font-family: 'Spectral', serif;
+    line-height: 150%;
+    text-align: center;
+    margin: 30px 0 50px 0;
+}
+
+.back-button {
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    /*----------------------   Other
+    */
+
+    .warning {
+        width: 138px;
+        padding: 10px 2px 10px 10px;
+    }
+
+    .warning > p {font-size: 11px;}
+
+    .version {
+        width: 75px;
+        padding: 8px 8px 8px 8px;
+    }
+
+    .version > p {font-size: 11px;}
+
+    header {margin: 0 0 20px 0;}
+
+    main {width: 95vw;}
+
+    .image-container {
+        width: 95vw;
+        height: 95vw;
+        border-radius: 17px;
+    }
+
+    .info-container {margin: 15px 2px 80px 2px;}
+
+    .post-description {
+        font-size: 15px;
+        margin: 14px 30px 12px 30px;
+    }
+
+    .post-timestamp {
+        font-size: 8px;
+        margin: 0 30px 0 30px;
+    }
+
+    .poem-timestamp {font-size: 8px;}
+
+    .about {
+        font-size: 14px;
+        margin: 30px 20px 50px 20px;
+    }
+
+    .back-button > p {font-size: 14px;}
+
+}
+
