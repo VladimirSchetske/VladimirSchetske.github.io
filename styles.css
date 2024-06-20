@@ -220,29 +220,49 @@ main {
 
 @media (max-width: 768px) {
     nav ul li {
-        margin: 5px;
+        margin: 3px;
     }
 
     nav ul li a img {
-        width: 40px;
-    }
-
-    .project-content {
-        flex-direction: column; /* Stack content vertically on smaller screens */
-        text-align: center;
-    }
-
-    .project-image-1 {
-        margin-bottom: 100px; /* Add space below the image */
-        margin-right: 0; /* Remove right margin when stacked */
+        width: 30px;
     }
 
     .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust grid item size for smaller screens */
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjust grid item size for smaller screens */
+        margin-top: 10px; /* Add space above the gallery */
+        width: 100%;
+        object-fit: cover;
     }
 
     .gallery-item {
-        max-width: 150px;
+        width: 100%; 
+        height: auto;
+        max-width: 80px; 
+        object-fit: cover;
+    }
+
+    .gallery-item img {
+        width: 100%; 
+        height: auto;
+        object-fit: cover; 
+        margin-top: 300px; 
+    }
+
+    .project-text {
+        width: 100%;
+        padding: 0 10px; 
+        box-sizing: border-box; 
+    }
+
+    .project-image-1 {
+        margin-top: 100px; 
+        margin-right: 0; 
+        max-width: 100%; 
+    }
+
+    .project-image-1 img {
+        width: 100%; /* Ensure the image fits within its container */
+        height: auto;
     }
 }
 
