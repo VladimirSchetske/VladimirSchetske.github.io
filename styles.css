@@ -331,7 +331,9 @@ main {
     }
 }
 
-/* Responsive Design for Lightbox Images on Tablets */
+/*------------------------- Responsive Design for Lightbox Images on Tablets --------------------------------*/
+
+
 @media (min-width: 481px) and (max-width: 1024px) {
     .lightbox-content {
         max-width: 90%; /* Ensure the image container does not exceed 90% of the screen width */
