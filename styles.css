@@ -92,6 +92,8 @@ main {
 }
 
 /*------PROJECT1 PAGE*------*/
+
+
 .project-content {
     display: flex;
     justify-content: center;
@@ -99,7 +101,7 @@ main {
     padding: 20px;
     position: relative;
     margin: 0 auto;
-    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+    flex-wrap: wrap; 
 }
 
 .project-text {
@@ -111,20 +113,18 @@ main {
 
 .project-image-1 {
     flex-shrink: 0;
-    max-width: 200px; /* Set a maximum width for the image */
-    margin-right: 20px; /* Add space between image and text */
-    position: absolute; /* Position the image absolutely */
-    left: 0; /* Align the image to the left side */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust position to center */
+    max-width: 200px; 
+    margin-right: 20px; 
+    position: absolute; 
+    left: 0; 
+    top: 50%; 
+    transform: translateY(-50%); 
 }
 
 .project-image-1 img {
     max-width: 625px;
     height: auto;
 }
-
-/* Other existing styles... */
 
 
 /*--- Tekst enz.--*/
@@ -233,13 +233,10 @@ main {
     }
 
     .project-image-1 {
-        margin-bottom: 20px; /* Add space below the image */
+        margin-bottom: 100px; /* Add space below the image */
         margin-right: 0; /* Remove right margin when stacked */
     }
 
-    .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust grid item size for smaller screens */
-    }
     .gallery {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust grid item size for smaller screens */
     }
@@ -258,8 +255,42 @@ main {
         width: 30px;
     }
 
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjust grid item size for smaller screens */
+        margin-top: 10px; /* Add space above the gallery */
+        width: 100%;
+        object-fit: cover;
+    }
+
     .gallery-item {
-        max-width: 100px;
+        width: 100%; 
+        height: auto;
+        max-width: 80px; 
+        object-fit: cover;
+    }
+
+    .gallery-item img {
+        width: 100%; 
+        height: auto;
+        object-fit: cover; 
+        margin-top: 300px; 
+    }
+
+    .project-text {
+        width: 100%;
+        padding: 0 10px; 
+        box-sizing: border-box; 
+    }
+
+    .project-image-1 {
+        margin-top: 100px; 
+        margin-right: 0; 
+        max-width: 100%; 
+    }
+
+    .project-image-1 img {
+        width: 100%; /* Ensure the image fits within its container */
+        height: auto;
     }
 }
 
