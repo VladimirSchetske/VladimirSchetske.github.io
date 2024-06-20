@@ -312,6 +312,89 @@ main {
         width: 100%; /* Ensure the image fits within its container */
         height: auto;
     }
+
+    .lightbox-content {
+        max-width: 100%; /* Ensure the image container does not exceed the screen width */
+        max-height: 100%; /* Ensure the image container does not exceed the screen height */
+        width: auto;
+        height: auto;
+        margin: 0 auto; /* Center the image horizontally */
+        display: flex;
+        justify-content: center; /* Center the image horizontally */
+        align-items: center; /* Center the image vertically */
+    }
+
+    .lightbox {
+        display: flex;
+        justify-content: center; /* Center the image horizontally */
+        align-items: center; /* Center the image vertically */
+    }
+}
+
+/* Responsive Design for Lightbox Images on Tablets */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .lightbox-content {
+        max-width: 90%; /* Ensure the image container does not exceed 90% of the screen width */
+        max-height: 90%; /* Ensure the image container does not exceed 90% of the screen height */
+        width: auto;
+        height: auto;
+        margin: 0 auto; /* Center the image horizontally */
+        display: flex;
+        justify-content: center; /* Center the image horizontally */
+        align-items: center; /* Center the image vertically */
+    }
+
+    .lightbox {
+        display: flex;
+        justify-content: center; /* Center the image horizontally */
+        align-items: center; /* Center the image vertically */
+    }
+
+    nav ul li {
+        margin: 3px;
+    }
+
+    nav ul li a img {
+        width: 30px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjust grid item size for smaller screens */
+        margin-top: 10px; /* Add space above the gallery */
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .gallery-item {
+        width: 100%; 
+        height: auto;
+        max-width: 80px; 
+        object-fit: cover;
+    }
+
+    .gallery-item img {
+        width: 100%; 
+        height: auto;
+        object-fit: cover; 
+        margin-top: 300px; 
+    }
+
+    .project-text {
+        width: 100%;
+        padding: 0 10px; 
+        box-sizing: border-box; 
+    }
+
+    .project-image-1 {
+        margin-top: 100px; 
+        margin-right: 0; 
+        max-width: 100%; 
+    }
+
+    .project-image-1 img {
+        width: 100%; /* Ensure the image fits within its container */
+        height: auto;
+    }
 }
 
 .prev, .next {
