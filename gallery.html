@@ -10,36 +10,40 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html"><img src="work.jpg" alt="Home"></a></li>
-                <li><a href="gallery.html"><img src="work.jpg" alt="Gallery"></a></li>
-                <li><a href="about.html"><img src="about.jpg" alt="About"></a></li>
-                <li><a href="contact.html"><img src="contact.jpg" alt="Contact"></a></li>
+                <li><a href="index.html"><img src="images/work.jpg" alt="Home" class="link-image"></a></li>
+                <li><a href="gallery.html"><img src="images/work.jpg" alt="Gallery" class="link-image"></a></li>
+                <li><a href="projects.html"><img src="images/work.jpg" alt="projects" class="link-image"></a></li>
+                <li><a href="about.html"><img src="images/about.jpg" alt="About" class="link-image"></a></li>
+                <li><a href="contact.html"><img src="images/contact.jpg" alt="Contact" class="link-image"></a></li>
+
             </ul>
         </nav>
+    </header>
+    <header>
+        <img src="images/work.jpg" alt="Header Image">
     </header>
     <main>
         <h1>Gallery</h1>
         <div class="gallery">
+            <div class="gallery-item-1"> 
             <img src="images/10.jpg" alt="Artwork 1" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 2" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 1" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 2" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 1" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 2" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 1" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 2" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 1" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 2" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 1" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 2" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 1" class="gallery-item" data-full="images/10.jpg">
-            <img src="images/10.jpg" alt="Artwork 2" class="gallery-item" data-full="images/10.jpg">
+            <img src="images/intro2.jpg" alt="Artwork 2" class="gallery-item" data-full="images/intro2.jpg">
+            </div>
+            <div class="gallery-item-2">           
+                 <img src="images/Eva15.jpg" alt="Artwork 3" class="gallery-item" data-full="images/Eva15.jpg">
+            </div>
+            <div class="gallery-item-3">           
+                <img src="images/test.jpg" alt="Artwork 3" class="gallery-item" data-full="images/test.jpg">
+           </div>
+
             <!-- Add more images as needed -->
         </div>
     </main>
     <div id="lightbox" class="lightbox">
         <span class="close">&times;</span>
         <img class="lightbox-content" id="lightbox-img">
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
     </div>
     <script src="script.js"></script>
 </body>
