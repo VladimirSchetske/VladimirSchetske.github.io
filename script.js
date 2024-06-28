@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const prev = document.querySelector('.prev');
     const next = document.querySelector('.next');
     let currentIndex = 0;
+    let userClicked = false; // Flag to track user interaction
+
+    // Ensure the lightbox is initially hidden
+    lightbox.style.display = 'none';
 
     // Set preview image dimensions based on original aspect ratio
     galleryItems.forEach(item => {
@@ -29,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Lightbox functionality
     galleryItems.forEach(item => {
         item.addEventListener('click', function (e) {
+            userClicked = true; // Set flag to true on user click
             e.preventDefault(); // Prevent default link behavior
             const fullImagePath = this.getAttribute('data-full');
             lightboxImg.src = fullImagePath;
@@ -76,5 +81,5 @@ document.addEventListener('DOMContentLoaded', function () {
         lightboxImg.src = fullImagePath;
         lightbox.style.display = 'block';
     }
-});
 
+});
