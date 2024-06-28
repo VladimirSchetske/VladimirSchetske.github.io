@@ -28,30 +28,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Lightbox functionality
     galleryItems.forEach(item => {
-        item.addEventListener('click', function () {
+        item.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default link behavior
             const fullImagePath = this.getAttribute('data-full');
             lightboxImg.src = fullImagePath;
             lightbox.style.display = 'block';
+            currentIndex = Array.from(galleryItems).indexOf(item);
         });
     });
 
-    close.addEventListener('click', function () {
-        lightbox.style.display = 'none';
-    });
-
-    lightbox.addEventListener('click', function (e) {
-        if (e.target === lightbox) {
+    if (close) {
+        close.addEventListener('click', function () {
             lightbox.style.display = 'none';
-        }
-    });
+        });
+    }
 
-    prev.addEventListener('click', function () {
-        showImage(currentIndex - 1);
-    });
+    if (lightbox) {
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    }
 
-    next.addEventListener('click', function () {
-        showImage(currentIndex + 1);
-    });
+    if (prev) {
+        prev.addEventListener('click', function () {
+            showImage(currentIndex - 1);
+        });
+    }
+
+    if (next) {
+        next.addEventListener('click', function () {
+            showImage(currentIndex + 1);
+        });
+    }
 
     function showImage(index) {
         const totalItems = galleryItems.length;
