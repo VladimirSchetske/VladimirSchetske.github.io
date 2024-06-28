@@ -26,57 +26,57 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     });
 
-    // Lightbox functionality
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent default link behavior
-            const fullImagePath = this.getAttribute('data-full');
-            lightboxImg.src = fullImagePath;
-            lightbox.style.display = 'block';
-            currentIndex = Array.from(galleryItems).indexOf(item);
-        });
+    //--------------------Lightbox functionality-----------------------------------//
+
+
+
+ // Open lightbox
+function openLightbox(src) {
+    lightbox.style.display = 'block';
+    lightboxImg.src = src;
+}
+
+// Close lightbox
+function closeLightbox() {
+    lightbox.style.display = 'none';
+}
+
+// Show next image
+function showNext() {
+    let currentIndex = [...galleryItems].findIndex(item => item.querySelector('img').src === lightboxImg.src);
+    currentIndex = (currentIndex + 1) % galleryItems.length;
+    lightboxImg.src = galleryItems[currentIndex].querySelector('img').src;
+}
+
+// Show previous image
+function showPrevious() {
+    let currentIndex = [...galleryItems].findIndex(item => item.querySelector('img').src === lightboxImg.src);
+    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    lightboxImg.src = galleryItems[currentIndex].querySelector('img').src;
+}
+
+// Event listeners
+galleryItems.forEach(item => {
+    item.addEventListener('click', event => {
+        openLightbox(event.target.getAttribute('data-full'));
     });
+});
 
-    if (close) {
-        close.addEventListener('click', function () {
-            lightbox.style.display = 'none';
-        });
-    }
+closeBtn.addEventListener('click', closeLightbox);
+prevBtn.addEventListener('click', showPrevious);
+nextBtn.addEventListener('click', showNext);
 
-    if (lightbox) {
-        lightbox.addEventListener('click', function (e) {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-            }
-        });
-    }
-
-    if (prev) {
-        prev.addEventListener('click', function () {
-            showImage(currentIndex - 1);
-        });
-    }
-
-    if (next) {
-        next.addEventListener('click', function () {
-            showImage(currentIndex + 1);
-        });
-    }
-
-    function showImage(index) {
-        const totalItems = galleryItems.length;
-        if (index >= totalItems) {
-            currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = totalItems - 1;
-        } else {
-            currentIndex = index;
-        }
-        const fullImagePath = galleryItems[currentIndex].getAttribute('data-full');
-        lightboxImg.src = fullImagePath;
-        lightbox.style.display = 'block';
+// Close lightbox when clicking outside the image
+lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) {
+        closeLightbox();
     }
 });
+
+// Remove automatic lightbox opening
+// if (window.innerWidth <= 768) { // This might be the problematic part
+//     openLightbox(galleryItems[0].querySelector('img').getAttribute('data-full'));
+// }
 
 
 
