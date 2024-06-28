@@ -1,59 +1,80 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
-    // Select all images in the gallery
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.querySelector('.close');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+    const close = document.querySelector('.close');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let currentIndex = 0;
 
-    // Open lightbox
-    function openLightbox(src) {
-        lightbox.style.display = 'block';
-        lightboxImg.src = src;
-    }
-
-    // Close lightbox
-    function closeLightbox() {
-        lightbox.style.display = 'none';
-    }
-
-    // Show next image
-    function showNext() {
-        let currentIndex = [...galleryItems].findIndex(item => item.querySelector('img').src === lightboxImg.src);
-        currentIndex = (currentIndex + 1) % galleryItems.length;
-        lightboxImg.src = galleryItems[currentIndex].querySelector('img').src;
-    }
-
-    // Show previous image
-    function showPrevious() {
-        let currentIndex = [...galleryItems].findIndex(item => item.querySelector('img').src === lightboxImg.src);
-        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-        lightboxImg.src = galleryItems[currentIndex].querySelector('img').src;
-    }
-
-    // Event listeners
+    // Set preview image dimensions based on original aspect ratio
     galleryItems.forEach(item => {
-        item.addEventListener('click', event => {
-            openLightbox(event.target.getAttribute('data-full'));
+        const img = new Image();
+        img.src = item.src;
+        img.onload = () => {
+            const originalWidth = img.naturalWidth;
+            const originalHeight = img.naturalHeight;
+            const aspectRatio = originalWidth / originalHeight;
+
+            if (aspectRatio > 1) {
+                item.style.width = '200px';
+                item.style.height = (200 / aspectRatio) + 'px';
+            } else {
+                item.style.height = '200px';
+                item.style.width = (200 * aspectRatio) + 'px';
+            }
+        };
+    });
+
+    // Lightbox functionality
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default link behavior
+            const fullImagePath = this.getAttribute('data-full');
+            lightboxImg.src = fullImagePath;
+            lightbox.style.display = 'block';
+            currentIndex = Array.from(galleryItems).indexOf(item);
         });
     });
 
-    closeBtn.addEventListener('click', closeLightbox);
-    prevBtn.addEventListener('click', showPrevious);
-    nextBtn.addEventListener('click', showNext);
+    if (close) {
+        close.addEventListener('click', function () {
+            lightbox.style.display = 'none';
+        });
+    }
 
-    // Close lightbox when clicking outside the image
-    lightbox.addEventListener('click', event => {
-        if (event.target === lightbox) {
-            closeLightbox();
+    if (lightbox) {
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    }
+
+    if (prev) {
+        prev.addEventListener('click', function () {
+            showImage(currentIndex - 1);
+        });
+    }
+
+    if (next) {
+        next.addEventListener('click', function () {
+            showImage(currentIndex + 1);
+        });
+    }
+
+    function showImage(index) {
+        const totalItems = galleryItems.length;
+        if (index >= totalItems) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = totalItems - 1;
+        } else {
+            currentIndex = index;
         }
-    });
-
-    // Remove automatic lightbox opening
-    // if (window.innerWidth <= 768) { // This might be the problematic part
-    //     openLightbox(galleryItems[0].querySelector('img').getAttribute('data-full'));
-    // }
+        const fullImagePath = galleryItems[currentIndex].getAttribute('data-full');
+        lightboxImg.src = fullImagePath;
+        lightbox.style.display = 'block';
+    }
 });
+
